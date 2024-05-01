@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 import requests
-import csv
 from sys import argv
 import json
 

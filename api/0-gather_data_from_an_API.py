@@ -9,11 +9,9 @@ if __name__ == '__main__':
 
     tasks_data = requests.get(f'https://jsonplaceholder.typicode.com/todos')
     comp_tasks = [data["userId"] for data in tasks_data.json()
-                  if data["completed"] is True]
+                  if data["completed"] is True].count(id)
 
-    all_tasks = [data["userId"] for data in tasks_data.json()]
-    comp_tasks = comp_tasks.count(id)
-    all_tasks = all_tasks.count(id)
+    all_tasks = [data["userId"] for data in tasks_data.json()].count(id)
 
     titles = [title['title'] for title in tasks_data.json()
               if title['completed'] is True and title['userId'] == id]

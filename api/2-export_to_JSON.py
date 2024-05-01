@@ -1,7 +1,7 @@
 #!/usr/bin/python3
+import json
 import requests
 from sys import argv
-import json
 
 if __name__ == '__main__':
     id = int(argv[1])

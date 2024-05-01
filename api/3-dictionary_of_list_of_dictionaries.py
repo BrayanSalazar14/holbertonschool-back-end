@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-import requests
 import json
+import requests
 
 if __name__ == '__main__':
     emp_data = requests.get('https://jsonplaceholder.typicode.com/users/')

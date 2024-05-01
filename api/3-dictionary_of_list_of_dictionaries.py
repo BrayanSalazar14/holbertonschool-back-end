@@ -14,9 +14,9 @@ if __name__ == '__main__':
         for all_data in tasks_data.json():
             if employees.get('id') == all_data.get('userId'):
                 list_data.append({
+                    "username": employees['username'],
                     "task": all_data['title'],
-                    "completed": all_data['completed'],
-                    "username": employees['username']
+                    "completed": all_data['completed']
                 })
                 dic[f"{employees['id']}"] = list_data
     with open('todo_all_employees.json', 'w', encoding='utf-8') as file:

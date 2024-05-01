@@ -11,7 +11,7 @@ if __name__ == '__main__':
     emp_data = requests.get(f'https://jsonplaceholder.typicode.com/users/{id}')
     usr_name = emp_data.json().get('name')
 
-    tasks_data = requests.get(f'https://jsonplaceholder.typicode.com/todos')
+    tasks_data = requests.get('https://jsonplaceholder.typicode.com/todos')
     comp_tasks = [data["userId"] for data in tasks_data.json()
                   if data["completed"] is True].count(id)
 

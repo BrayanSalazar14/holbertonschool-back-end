@@ -22,8 +22,7 @@ if __name__ == '__main__':
             "username": usr_name
         })
 
-    filename = f"{id}.json"
-    with open(filename, "w", encoding="utf-8") as file:
+    with open(f"{id}.json", "w", encoding="utf-8") as file:
         dic_employess = {}
         dic_employess[f"{id}"] = list_json
         json.dump(dic_employess, file)

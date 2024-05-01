@@ -14,7 +14,7 @@ if __name__ == '__main__':
     data_all = [boole for boole in tasks_data.json()
                 if boole.get('userId') == id]
 
-    with open(f"{id}.csv", 'a', newline='', encoding="utf-8") as csvfile:
+    with open(f"{id}.csv", 'w', newline='', encoding="utf-8") as csvfile:
         write = csv.writer(csvfile, dialect="unix")
         for data in data_all:
             write.writerow([data['userId'], usr_name,

@@ -16,7 +16,7 @@ if __name__ == '__main__':
                 list_data.append({
                     "task": all_data['title'],
                     "completed": all_data['completed'],
-                    "username": employees['name']
+                    "username": employees['username']
                 })
                 dic[f"{employees['id']}"] = list_data
     with open('todo_all_employees.json', 'w', encoding='utf-8') as file:

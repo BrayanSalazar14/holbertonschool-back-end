@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""
+Module that use REST API  for a given employee ID,
+returns information about his/her TODO list progress.
+"""
 import requests
 from sys import argv
 

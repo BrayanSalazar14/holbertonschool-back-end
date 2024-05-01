@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Module that export data in the JSON format
+"""
 import json
 import requests
 from sys import argv
@@ -10,20 +13,17 @@ if __name__ == '__main__':
     tasks_data = requests.get(f'https://jsonplaceholder.typicode.com/todos')
     data_all = [boole for boole in tasks_data.json()
                 if boole.get('userId') == id]
-    
+
     list_json = []
     for data in data_all:
         list_json.append({
-            "task":data['title'],
-            "completed":data['completed'],
-            "username":usr_name
+            "task": data['title'],
+            "completed": data['completed'],
+            "username": usr_name
         })
 
     filename = f"{id}.json"
     with open(filename, "w", encoding="utf-8") as file:
         dic_employess = {}
-        dic_employess[f"{id}"] = list_json 
+        dic_employess[f"{id}"] = list_json
         json.dump(dic_employess, file)
-            
-        
-        

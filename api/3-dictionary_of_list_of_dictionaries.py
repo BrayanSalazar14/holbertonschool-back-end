@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Module that export data in the JSON format.
+"""
 import json
 import requests
 

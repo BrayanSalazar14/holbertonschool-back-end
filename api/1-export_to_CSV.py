@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Module that export data in the CSV format
+"""
 import csv
 import requests
 from sys import argv

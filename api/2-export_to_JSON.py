@@ -9,7 +9,7 @@ from sys import argv
 if __name__ == '__main__':
     id = int(argv[1])
     emp_data = requests.get(f'https://jsonplaceholder.typicode.com/users/{id}')
-    usr_name = emp_data.json().get('name')
+    usr_name = emp_data.json().get('username')
     tasks_data = requests.get(f'https://jsonplaceholder.typicode.com/todos')
     data_all = [boole for boole in tasks_data.json()
                 if boole.get('userId') == id]

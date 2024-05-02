@@ -6,18 +6,23 @@ import json
 import requests
 
 if __name__ == '__main__':
-    emp_data = requests.get('https://jsonplaceholder.typicode.com/users/')
-    tasks_data = requests.get('https://jsonplaceholder.typicode.com/todos')
+    tasks_data = requests.get(
+        'https://jsonplaceholder.typicode.com/todos').json()
+    users_id = list(set([ids['userId'] for ids in tasks_data]))
     dic = {}
-    for employees in emp_data.json():
-        list_data = []
-        for all_data in tasks_data.json():
-            if employees.get('id') == all_data.get('userId'):
-                list_data.append({
-                    "username": employees['username'],
-                    "task": all_data['title'],
-                    "completed": all_data['completed']
-                })
-                dic[f"{employees['id']}"] = list_data
+    for userId in users_id:
+
+        emp_name = requests.get(
+            f'https://jsonplaceholder.typicode.com/users/{userId}').json()
+
+        emp_data = requests.get(
+            f'https://jsonplaceholder.typicode.com/users/{userId}/todos').json()
+
+        list_data = [{
+            "username": emp_name['username'],
+            "task": data['title'],
+            "completed:": data['completed']} for data in emp_data]
+
+        dic[userId] = list_data
     with open('todo_all_employees.json', 'w', encoding='utf-8') as file:
         json.dump(dic, file)

@@ -22,8 +22,9 @@ if __name__ == '__main__':
         list_data = [{
             "username": emp_name['username'],
             "task": data['title'],
-            "completed:": data['completed']} for data in emp_data]
-
+            "completed": data['completed']
+        } for data in emp_data]
         dic[usrId] = list_data
+
     with open('todo_all_employees.json', 'w', encoding='utf-8') as file:
         json.dump(dic, file)

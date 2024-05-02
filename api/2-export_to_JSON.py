@@ -14,13 +14,11 @@ if __name__ == '__main__':
     data_all = [boole for boole in tasks_data.json()
                 if boole.get('userId') == id]
 
-    list_json = []
-    for data in data_all:
-        list_json.append({
-            "task": data['title'],
-            "completed": data['completed'],
-            "username": usr_name
-        })
+    list_json = [{
+        "task": data['title'],
+        "completed": data['completed'],
+        "username": usr_name
+    } for data in data_all]
 
     with open(str(id) + ".json", "a", encoding="utf-8") as file:
         dic_employess = {}
